@@ -1,3 +1,4 @@
+"use client"
 import { cn } from "@/lib/utils"
 
 function ExampleWrapper({ className, ...props }: React.ComponentProps<"div">) {

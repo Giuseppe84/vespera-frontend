@@ -1,6 +1,10 @@
+
 import type { Metadata } from "next";
 import { Geist, Geist_Mono, Raleway } from "next/font/google";
 import "./globals.css";
+import { ThemeProvider } from "@/components/theme-providers"
+import { TooltipProvider } from "@/components/ui/tooltip"
+
 
 const raleway = Raleway({subsets:['latin'],variable:'--font-sans'});
 
@@ -29,7 +33,16 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        {children}
+          <ThemeProvider
+            attribute="class"
+            defaultTheme="system"
+            enableSystem
+            disableTransitionOnChange
+          >
+              <TooltipProvider>
+          {children}
+        </TooltipProvider>
+          </ThemeProvider>
       </body>
     </html>
   );
